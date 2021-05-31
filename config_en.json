@@ -18,15 +18,15 @@
       "items": [
         {
           "category": 28,
-          "image": "https://www.lilejoy.com/image/cache/catalog/categoryicon/ci1-100x100.png",
+          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci1-100x100.png",
           "colors": [
-            "#FFFFFF",
-            "#FFFFFF"
+            "#65ACD3",
+            "#65ACD3"
           ]
         },
         {
           "category": 25,
-          "image": "https://www.lilejoy.com/image/cache/catalog/categoryicon/ci2-100x100.png",
+          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci2-100x100.png",
           "colors": [
             "#55698C",
             "#55698C"
@@ -34,7 +34,7 @@
         },
         {
           "category": 66,
-          "image": "https://www.lilejoy.com/image/cache/catalog/categoryicon/ci3-100x100.png",
+          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci3-100x100.png",
           "colors": [
             "#5691B1",
             "#5691B1"
@@ -42,7 +42,7 @@
         },
         {
           "category": 27,
-          "image": "https://www.lilejoy.com/image/cache/catalog/categoryicon/ci4-100x100.png",
+          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci4-100x100.png",
           "colors": [
             "#E6AA50",
             "#E6AA50"
@@ -50,7 +50,7 @@
         },
         {
           "category": 67,
-          "image": "https://www.lilejoy.com/image/cache/catalog/categoryicon/ci5-100x100.png",
+          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci5-100x100.png",
           "colors": [
             "#1A5A80",
             "#1A5A80"
@@ -58,7 +58,7 @@
         },
         {
           "category": 64,
-          "image": "https://www.lilejoy.com/image/cache/catalog/categoryicon/ci6-100x100.png",
+          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci6-100x100.png",
           "colors": [
             "#4597D3",
             "#4597D3"
@@ -66,7 +66,7 @@
         },
         {
           "category": 61,
-          "image": "https://www.lilejoy.com/image/cache/catalog/categoryicon/ci7-100x100.png",
+          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci7-100x100.png",
           "colors": [
             "#F7B527",
             "#F7B527"
@@ -74,7 +74,7 @@
         },
         {
           "category": 69,
-          "image": "https://www.lilejoy.com/image/cache/catalog/categoryicon/ci8-100x100.png",
+          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci8-100x100.png",
           "colors": [
             "#6C7EA4",
             "#6C7EA4"
@@ -82,7 +82,7 @@
         },
         {
           "category": 63,
-          "image": "https://www.lilejoy.com/image/cache/catalog/categoryicon/ci9-100x100.png",
+          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci9-100x100.png",
           "colors": [
             "#4FAF48",
             "#4FAF48"
@@ -90,7 +90,7 @@
         },
         {
           "category": 62,
-          "image": "https://www.lilejoy.com/image/cache/catalog/categoryicon/ci10-100x100.png",
+          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci10-100x100.png",
           "colors": [
             "#6F875B",
             "#6F875B"
@@ -98,7 +98,7 @@
         },
         {
           "category": 20,
-          "image": "https://www.lilejoy.com/image/cache/catalog/categoryicon/ci11-100x100.png",
+          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci11-100x100.png",
           "colors": [
             "#F89930",
             "#F89930"
@@ -106,7 +106,7 @@
         },
         {
           "category": 68,
-          "image": "https://www.lilejoy.com/image/cache/catalog/categoryicon/ci12-100x100.png",
+          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci12-100x100.png",
           "colors": [
             "#9189B2",
             "#9189B2"
@@ -114,7 +114,7 @@
         },
         {
           "category": 65,
-          "image": "https://www.lilejoy.com/image/cache/catalog/categoryicon/ci13-100x100.png",
+          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci13-100x100.png",
           "colors": [
             "#4E829E",
             "#4E829E"
@@ -122,7 +122,7 @@
         },
         {
           "category": 70,
-          "image": "https://www.lilejoy.com/image/cache/catalog/categoryicon/ci14-100x100.png",
+          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci14-100x100.png",
           "colors": [
             "#DD7425",
             "#DD7425"
@@ -260,7 +260,7 @@
     }
   ],
   "Setting": {
-    "MainColor": "#3FC1BE",
+    "MainColor": "#1987CA",
     "ProductListLayout": "list",
     "StickyHeader": false,
     "ShowChat": true
@@ -272,7 +272,7 @@
     },
     {
       "layout": "category",
-      "categoryLayout": "card",
+      "categoryLayout": "sideMenu",
       "icon": "assets/icons/tabs/icon-category.png"
     },
     {
