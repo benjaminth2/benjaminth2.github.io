@@ -30,7 +30,7 @@
           {
             "padding":34.2,
             "image":"https://www.clmedicalltd.com/wp-content/uploads/2021/05/ci5.png",
-            "blog-category":"1"
+            "blog":"1"
           },
           {
             "padding":34.2,
@@ -138,5 +138,12 @@
     "Stitch",
     "ma"
   ],
-  "Story": "lib/config/stories/stories_en.json"
+  "Story": "lib/config/stories/stories_en.json",
+	"VerticalLayout":{
+		"key":"wsftc9somo",
+		"layout":"pinterest",
+		"name":"",
+		"isVertical":true,
+		"category":"40"
+	}
 }

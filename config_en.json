@@ -1,264 +1,107 @@
 {
   "HorizonLayout": [
     {
-      "layout": "logo",
-      "showMenu": true,
-      "showSearch": true,
-      "showLogo": true
+      "layout":"logo",
+      "showMenu":true,
+      "showSearch":true,
+      "showLogo":true,
+      "image":"https://www.clmedicalltd.com/wp-content/uploads/2021/05/Screenshot-2021-05-24-at-1.56.23-PM-300x83.png"
     },
-    {
-      "layout": "category",
-      "type": "icon",
-      "size": 1,
-      "width": 50,
-      "height": 50,
-      "wrap": false,
-      "noBackground": true,
-      "radius": 50.0,
-      "items": [
-        {
-          "category": 28,
-          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci1-100x100.png",
-          "colors": [
-            "#65ACD3",
-            "#65ACD3"
-          ]
-        },
-        {
-          "category": 25,
-          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci2-100x100.png",
-          "colors": [
-            "#55698C",
-            "#55698C"
-          ]
-        },
-        {
-          "category": 66,
-          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci3-100x100.png",
-          "colors": [
-            "#5691B1",
-            "#5691B1"
-          ]
-        },
-        {
-          "category": 27,
-          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci4-100x100.png",
-          "colors": [
-            "#E6AA50",
-            "#E6AA50"
-          ]
-        },
-        {
-          "category": 67,
-          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci5-100x100.png",
-          "colors": [
-            "#1A5A80",
-            "#1A5A80"
-          ]
-        },
-        {
-          "category": 64,
-          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci6-100x100.png",
-          "colors": [
-            "#4597D3",
-            "#4597D3"
-          ]
-        },
-        {
-          "category": 61,
-          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci7-100x100.png",
-          "colors": [
-            "#F7B527",
-            "#F7B527"
-          ]
-        },
-        {
-          "category": 69,
-          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci8-100x100.png",
-          "colors": [
-            "#6C7EA4",
-            "#6C7EA4"
-          ]
-        },
-        {
-          "category": 63,
-          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci9-100x100.png",
-          "colors": [
-            "#4FAF48",
-            "#4FAF48"
-          ]
-        },
-        {
-          "category": 62,
-          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci10-100x100.png",
-          "colors": [
-            "#6F875B",
-            "#6F875B"
-          ]
-        },
-        {
-          "category": 20,
-          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci11-100x100.png",
-          "colors": [
-            "#F89930",
-            "#F89930"
-          ]
-        },
-        {
-          "category": 68,
-          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci12-100x100.png",
-          "colors": [
-            "#9189B2",
-            "#9189B2"
-          ]
-        },
-        {
-          "category": 65,
-          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci13-100x100.png",
-          "colors": [
-            "#4E829E",
-            "#4E829E"
-          ]
-        },
-        {
-          "category": 70,
-          "image": "https://www.clmedicalltd.com/image/cache/catalog/categoryicon/ci14-100x100.png",
-          "colors": [
-            "#DD7425",
-            "#DD7425"
-          ]
-        }
-      ]
-    },
-    {
-      "layout": "bannerImage",
-      "isSlider": false,
-      "autoPlay": false,
-      "showNumber": false,
-      "design": "default",
-      "showBackGround": true,
-      "radius": 2.0,
-      "items": [
-        {
-          "category": 72,
-          "image": "assets/icons/categories/banner1.png",
-          "padding": 15.0
-        }
-      ]
-    },
-    {
-      "layout": "bannerImage",
-      "isSlider": false,
-      "autoPlay": false,
-      "showNumber": false,
-      "design": "default",
-      "showBackGround": true,
-      "radius": 2.0,
-      "items": [
-        {
-          "category": 71,
-          "image": "assets/icons/categories/Top50.png",
-          "padding": 15.0
-        }
-      ]
-    },
-    {
-      "layout": "bannerImage",
-      "isSlider": false,
-      "autoPlay": false,
-      "showNumber": false,
-      "design": "default",
-      "showBackGround": true,
-      "radius": 2.0,
-      "items": [
-        {
-          "category": 28,
-          "image": "assets/icons/categories/Small_1.png",
-          "padding": 15.0
-        },
-        {
-          "category": 67,
-          "image": "assets/icons/categories/Small_2.png",
-          "padding": 15.0
-        }
-      ]
-    },
-    {
-      "name": "Prime",
-      "layout": "threeColumn",
-      "category": 20
-    },
-    {
-      "name": "Private",
-      "layout": "threeColumn",
-      "category": 62
-    },
-    {
-      "name": "Collectables",
-      "layout": "threeColumn",
-      "category": 61
-    },
-    {
-      "name": "Brand",
-      "layout": "threeColumn",
-      "category": 27
-    },
-    {
-      "name": "Livings",
-      "layout": "threeColumn",
-      "category": 67
-    },
-    {
-      "name": "Pets",
-      "layout": "threeColumn",
-      "category": 64
-    },
-    {
-      "name": "Health",
-      "layout": "threeColumn",
-      "category": 28
-    },
-    {
-      "name": "Stationary",
-      "layout": "threeColumn",
-      "category": 69
-    },
-    {
-      "name": "Latest",
-      "layout": "threeColumn",
-      "category": 71
-    },
-    {
-      "name": "Environmental",
-      "layout": "threeColumn",
-      "category": 63
-    },
-    {
-      "name": "Groceries",
-      "layout": "threeColumn",
-      "category": 68
-    },
-    {
-      "name": "Electronics",
-      "layout": "threeColumn",
-      "category": 65
-    },
-    {
-      "name": "F&B",
-      "layout": "threeColumn",
-      "category": 70
-    },
-    {
-      "name": "Miscellaneous",
-      "layout": "threeColumn",
-      "category": 66
-    },
-    {
-      "name": "All Product",
-      "layout": "threeColumn",
-      "category": 25
-    }
-  ],
+      {
+        "layout":"bannerImage",
+        "isSlider":false,
+        "marginTop":10.0,
+        "marginBottom":10.0,
+        "marginLeft":10.0,
+        "marginRight":10.0,
+        "height":0.06,
+        "fit":"contain",
+        "items":[
+          {
+            "padding":34.2,
+            "image":"https://www.clmedicalltd.com/wp-content/uploads/2021/05/ci1-1.png",
+            "category":"41"
+          },
+          {
+            "padding":34.2,
+            "image":"https://www.clmedicalltd.com/wp-content/uploads/2021/05/ci2-1.png",
+            "category":"43"
+          },
+          {
+            "padding":34.2,
+            "image":"https://www.clmedicalltd.com/wp-content/uploads/2021/05/ci5.png",
+            "blog":"1"
+          },
+          {
+            "padding":34.2,
+            "image":"https://www.clmedicalltd.com/wp-content/uploads/2021/05/ci4-1.png",
+            "category":"40"
+          }
+        ]
+      },
+      {
+        "layout":"bannerImage",
+        "isSlider":false,
+        "marginTop":10.0,
+        "marginBottom":10.0,
+        "marginLeft":10.0,
+        "marginRight":10.0,
+        "height":0.2,
+        "fit":"cover",
+        "items":[
+          {
+            "padding":0.0,
+            "image":"https://www.clmedicalltd.com/wp-content/uploads/2021/05/Front-Page-Chi-2.jpg",
+            "category":"-1"
+          }
+        ]
+      },
+      {
+        "layout":"bannerImage",
+        "isSlider":false,
+        "marginTop":10.0,
+        "marginBottom":10.0,
+        "marginLeft":10.0,
+        "marginRight":10.0,
+        "height":0.2,
+        "fit":"cover",
+        "items":[
+          {
+            "padding":0.0,
+            "image":"https://www.clmedicalltd.com/wp-content/uploads/2021/05/Banner_2.png",
+            "category":"-1"
+          }
+        ]
+      },
+      {
+        "layout":"bannerImage",
+        "isSlider":false,
+        "marginTop":10.0,
+        "marginBottom":10.0,
+        "marginLeft":10.0,
+        "marginRight":10.0,
+        "height":0.35,
+        "fit":"contain",
+        "items":[
+          {
+            "padding":5.0,
+            "image":"https://www.clmedicalltd.com/wp-content/uploads/2021/05/Health-Examination-1.jpg",
+            "category":"41",
+            "radius":0.0
+          },
+          {
+            "padding":5.0,
+            "image":"https://www.clmedicalltd.com/wp-content/uploads/2021/05/2@3x-medium.png",
+            "category":"-1",
+            "radius":0.0
+          }
+        ]
+      },
+      {
+        "name":"",
+        "layout":"blog"
+      }
+    ],
   "Setting": {
     "MainColor": "#1987CA",
     "ProductListLayout": "list",
@@ -290,32 +133,17 @@
     }
   ],
   "searchSuggestion": [
-    "Here are some suggestions:",
     "man",
-    "woman",
     "dress",
-    "Stitch"
+    "Stitch",
+    "ma"
   ],
-  "OnBoarding": {
-    "data": [
-      {
-        "title": "Welcome to Joy Living",
-        "image": "assets/images/fogg-delivery-1.png",
-        "desc": "Joy Living is on the way to serve you.",
-        "background": "#FFF3F2"
-      },
-      {
-        "title": "Quality Living Quality Life",
-        "image": "assets/images/fogg-uploading-1.png",
-        "desc": "Delivering latest health products. Fast, convenient and clean.",
-        "background": "#F2FFFC"
-      },
-      {
-        "title": "Let's Get Started",
-        "image": "fogg-order-completed.png",
-        "desc": "Waiting no more, let's see what we get!",
-        "background": "#F9F2FF"
-      }
-    ]
-  }
+  "Story": "lib/config/stories/stories_en.json",
+	"VerticalLayout":{
+		"key":"wsftc9somo",
+		"layout":"pinterest",
+		"name":"",
+		"isVertical":true,
+		"category":"40"
+	}
 }
