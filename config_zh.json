@@ -9,7 +9,7 @@
     },
       {
         "layout":"bannerImage",
-        "isSlider":true,
+        "isSlider":false,
         "marginTop":10.0,
         "marginBottom":10.0,
         "marginLeft":10.0,
