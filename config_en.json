@@ -8,34 +8,46 @@
       "image":"https://www.clmedicalltd.com/wp-content/uploads/2021/05/Screenshot-2021-05-24-at-1.56.23-PM-300x83.png"
     },
       {
-        "layout":"bannerImage",
-        "isSlider":false,
-        "marginTop":10.0,
-        "marginBottom":10.0,
-        "marginLeft":10.0,
-        "marginRight":10.0,
-        "height":0.06,
-        "fit":"contain",
+      "layout": "category",
+      "type": "icon",
+      "size": 1,
+      "width": 50,
+      "height": 50,
+      "wrap": false,
+      "noBackground": true,
+      "radius": 50.0,
+      "showText": true,
+      "columns": 3,
         "items":[
           {
             "padding":34.2,
             "image":"https://www.clmedicalltd.com/wp-content/uploads/2021/05/ci1-1.png",
-            "category":"41"
+            "category":"41",
+            "originalColor": true,
+            "colors": [
+              "#FFFFFF",
+              "#FFFFFF"
+            ]
           },
           {
             "padding":34.2,
             "image":"https://www.clmedicalltd.com/wp-content/uploads/2021/05/ci2-1.png",
-            "category":"43"
-          },
-          {
-            "padding":34.2,
-            "image":"https://www.clmedicalltd.com/wp-content/uploads/2021/05/ci5.png",
-            "blog":"106"
+            "category":"43",
+            "originalColor": true,
+            "colors": [
+              "#FFFFFF",
+              "#FFFFFF"
+            ]
           },
           {
             "padding":34.2,
             "image":"https://www.clmedicalltd.com/wp-content/uploads/2021/05/ci4-1.png",
-            "category":"40"
+            "category":"40",
+            "originalColor": true,
+            "colors": [
+              "#FFFFFF",
+              "#FFFFFF"
+            ]
           }
         ]
       },
@@ -92,18 +104,20 @@
           {
             "padding":5.0,
             "image":"https://www.clmedicalltd.com/wp-content/uploads/2021/05/2@3x-medium.png",
-            "category":"-1",
+            "category":"41",
             "radius":0.0
           }
         ]
       },
       {
-        "name":"",
-        "layout":"blog"
+        "name":"PROMOTION",
+            "image": "",
+        "layout":"twoColumn",
+        "category":"40",
       }
     ],
   "Setting": {
-    "MainColor": "#1987CA",
+    "MainColor": "#58c4e7",
     "ProductListLayout": "list",
     "StickyHeader": false,
     "ShowChat": true
@@ -138,12 +152,5 @@
     "Stitch",
     "ma"
   ],
-  "Story": "lib/config/stories/stories_en.json",
-	"VerticalLayout":{
-		"key":"wsftc9somo",
-		"layout":"pinterest",
-		"name":"",
-		"isVertical":true,
-		"category":"40"
-	}
+  "Story": "lib/config/stories/stories_en.json"
 }
