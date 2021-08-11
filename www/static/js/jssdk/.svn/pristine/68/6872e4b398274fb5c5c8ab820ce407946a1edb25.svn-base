@@ -1,0 +1,77 @@
+var DoorMasterSdkUtil = {}
+
+
+
+
+DoorMasterSdkUtil.doJsAction = function (windowObj, actionCode, actionData, dataSucessCallBackFn, dataErrorCallBackFn) {
+    //actionCode 支持openDoor，actionData是格式化成str格式的map，JSON.stringify(deviceContent)
+
+    //console.log(actionCode)
+    if (windowObj) {
+        var cordova = windowObj.cordova;
+        if (cordova) {
+            console.log("getSqliteDbData");
+            windowObj.app.showDataFn(windowObj,actionCode)
+            windowObj.app.showDataFn(windowObj,actionData)
+
+            cordova.plugins.CommunicationHelper.doJsAction(actionCode, actionData, function(returnData){
+                if(returnData){
+                    if(dataSucessCallBackFn){
+                        dataSucessCallBackFn(returnData);
+                    }
+                }
+            }, function(errorData){
+                if(errorData){
+                    if(dataErrorCallBackFn){
+                        dataErrorCallBackFn(errorData);
+                    }
+                }
+            })
+
+        }
+    }
+
+}
+
+
+DoorMasterSdkUtil.openDoor = function (winObj, inData, dataCallBackFn) {
+    
+        //inData格式{  'DeviceId': deviceId,'Output': outPut}
+    var dataCallBackFn_=function(resultData){
+        if(returnData){
+            if(dataCallBackFn){
+                dataCallBackFn(returnData);
+            }
+        }
+    }    
+    windowObj.app.showDataFn(winObj,inData)
+    if (typeof (inData) == 'string') {
+        var data = JSON.parse(inData)
+        if (data.Output != null) {
+            if (data.Output == 0) {
+                window.OpenDooFlag = false
+            } else {
+                window.OpenDooFlag = true
+            }
+        }
+        DoorMasterSdkUtil.doJsAction(winObj, "openDoor", inData, dataCallBackFn_);
+    } else if (typeof (inData) == 'object') {
+        if (inData.Output != null) {
+            if (inData.Output == 0) {
+                window.OpenDooFlag = false
+            } else {
+                window.OpenDooFlag = true
+            }
+        }
+        var inDataStr = JSON.stringify(inData);
+        this.doJsAction(winObj, "openDoor", inDataStr, dataCallBackFn_);
+    } else {
+        if (dataCallBackFn) {
+            dataCallBackFn("not supported!")
+        }
+    }
+
+
+
+
+}

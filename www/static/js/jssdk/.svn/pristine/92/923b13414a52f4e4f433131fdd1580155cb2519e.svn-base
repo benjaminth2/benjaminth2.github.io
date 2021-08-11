@@ -1,0 +1,81 @@
+
+
+var app = {}
+app.debug = true;
+app.isCordova = true;
+
+app.showDataFn=function (data) {
+    if(app.debug){
+        alert(data)
+    }else{
+        console.log(data);
+    }
+}
+app.Init = function () {
+    if (app.isCordova) {
+        window.OpenDooFlag=false;
+        window.cordovaCallBackHandler = function (ret, OpenDooFlag) {
+            console.log("111:" + ret);
+            console.log("112:" + OpenDooFlag);
+            //alert(window.OpenDooData!=null)
+            console.log("113:" +window.OpenDooData)
+            if(ret!=null){
+            ret=0
+                if(ret==0){
+            if(OpenDooFlag!=null){
+            if(OpenDooFlag==true){
+                var QrIds=window.OpenDooData;
+                var url="content-frame.html#/ele_floor?OpenDooData="+QrIds;
+                console.log("114:" +url)
+                document.getElementById("content-frame").src=url
+                //document.getElementById("content-frame").contentWindow.location.reload(true)
+            }else{
+                var OpenDooData=window.OpenDooData;
+                var OpenFloorData=window.OpenFloorData
+                var url="content-frame.html#/ele_result?OpenDooData="+OpenDooData+"&OpenFloorData="+OpenFloorData;
+                console.log("114:" +url)
+                document.getElementById("content-frame").src=url;
+                //document.getElementById("content-frame").contentWindow.location.reload(true)
+            }}}}
+        }
+        window.cordovaCallBack = function (retIn) {
+            if (retIn) {
+                if (retIn == 0) {
+                    if (window.cordovaCallBackHandler) {
+                        window.cordovaCallBackHandler(retIn, window.OpenDooFlag)
+                    }
+                } else {
+                    if (window.cordovaCallBackHandler) {
+                        window.cordovaCallBackHandler(retIn, window.OpenDooFlag)
+                    }
+                }
+            }
+        }
+        app.bind_action();
+    }
+    
+}
+app.bind_action=function() {
+    window.app=app;
+
+    
+
+        window.app.DataProcessUtil = DataProcessUtil;
+         window.app.DataInitUtil = DataInitUtil;
+
+        if(window.cordova.platformId != 'android' ){
+            DataInitUtil.initData();
+        }
+
+        if (app.debug) {
+            DataInitUtil.initTestData()
+        }
+        window.app.DoorMasterSdkUtil = DoorMasterSdkUtil;
+        window.app.DbUtil = DbUtil;
+        window.app.OtherUtil=OtherUtil
+        window.app.xorCrypt=xorCrypt
+
+    // body...
+}
+
+

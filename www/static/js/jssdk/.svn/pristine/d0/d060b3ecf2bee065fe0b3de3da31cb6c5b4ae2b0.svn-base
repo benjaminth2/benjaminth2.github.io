@@ -1,0 +1,33 @@
+var DataProviderUtil={}
+DataProviderUtil.debug=true
+DataProviderUtil.dbName='encrypted.db';
+DataProviderUtil.key='encrypted';
+
+
+DataProviderUtil.queryDeviceDataFromDb=function(windowObj, deviceid,cbfn){
+    if(windowObj){
+        if(windowObj.sqlitePlugin){
+        var db = windowObj.sqlitePlugin.openDatabase({
+            name: DataProviderUtil.dbName,//'unencrypted.db',
+            key: DataProviderUtil.key,
+            location: 0
+          });
+          var sql = 'select * from dev where id = "' + deviceid + '"';
+          windowObj.app.showDataFn(windowObj,db!=null);
+          windowObj.app.showDataFn(windowObj,sql);
+          db.executeSql(sql, [], function (rs) {
+            var str = 'Record count (expected to be n): ' + rs.rows.item(0);
+           windowObj.app.showDataFn(windowObj,str);
+            if (cbfn) {
+              //windowObj.app.showDataFn(windowObj,typeof(rs.rows.item(0)))
+              cbfn(rs.rows.item(0));
+            }
+          }, function (error) {
+            if(DataProviderUtil.debug){
+                alert(error)
+            }else{
+                windowObj.app.showDataFn(windowObj,error)
+            }
+          });
+    }}
+}

@@ -1,0 +1,124 @@
+
+var DataProcessUtil = {}
+
+
+
+//处理qrcode扫描结果
+DataProcessUtil.processQrcodeScanResultData = function (windowObj,qrcodeScanResultData,processDataResultCallBack) {
+ 
+    if(qrcodeScanResultData!=null&&typeof (qrcodeScanResultData) == "string"){
+
+   
+        
+        
+            var jsonData=[]
+            
+                //windowObj.app.showDataFn(windowObj,"in")
+                var app=windowObj.app;
+                if(app){
+                if(app.xorCrypt){
+                var decripteAfterdata=windowObj.app.xorCrypt(decripteBeforeData)
+                windowObj.app.showDataFn(windowObj,decripteAfterdata)
+                //qrcodeData = evil(decripted);
+                jsonData=(new Function("return "+""+decripteAfterdata+""))();
+               //windowObj.app.showDataFn(windowObj,qrcodeData)
+                }}
+             
+    var estates = [];
+    if (jsonData&&Array.isArray(jsonData)) {
+      var data0 = jsonData[0];
+
+      if (data0 == "M" || data0 == "R2") {
+        for (let i = 0; i < jsonData[1].length; i++) {
+          let estate = {};
+          let element = jsonData[1][i];
+          windowObj.app.showDataFn(windowObj,element);
+          windowObj.app.showDataFn(windowObj,element[0]);
+          let estateName = element[0];
+          let buildingData = element[1];
+          windowObj.app.showDataFn(windowObj,buildingData);
+          let buildName = buildingData[0];
+          windowObj.app.showDataFn(windowObj,buildName);
+
+          let buildMaps = [];
+          for (let index = 1; index < buildingData.length; index++) {
+            let buildMap = {};
+            const element = buildingData[index];
+            windowObj.app.showDataFn(windowObj,element);
+            let Machine = element[0];
+            let Button = element[1];
+            let OutPut = element[2];
+            let DeviceID = element[3];
+
+            let Password = element[6];
+            if (Password == null) {
+              Password = "";
+            }
+            buildMap.Machine = Machine;
+            buildMap.Button = Button;
+            buildMap.OutPut = OutPut;
+            buildMap.DeviceID = DeviceID;
+            buildMap.Password = Password;
+            buildMap.Building = buildName;
+            buildMap.Estate = estateName;
+            buildMaps.push(buildMap);
+          }
+          estate.Buildings = buildMaps;
+
+          estate.BtnList = jsonData[2];
+          estates.push(estate);
+        }
+      } else if (data0 == "R1") {
+        windowObj.app.showDataFn(windowObj,"jsonData[1].length:" + jsonData[1].length);
+
+        windowObj.app.showDataFn(windowObj,jsonData[1].length);
+        windowObj.app.showDataFn(windowObj,jsonData[1]);
+
+        for (let i = 0; i < jsonData[1].length; i++) {
+          let estate = {};
+          let element = jsonData[1][i];
+          windowObj.app.showDataFn(windowObj,element);
+          let estateName = element[0];
+          windowObj.app.showDataFn(windowObj,element[0]);
+          let buildingData = element[1];
+          windowObj.app.showDataFn(windowObj,buildingData);
+          let buildName = buildingData[0];
+          windowObj.app.showDataFn(windowObj,buildName);
+          let buildMaps = [];
+          for (let index = 1; index < buildingData.length; index++) {
+            let buildMap = {};
+            const element = buildingData[index];
+            windowObj.app.showDataFn(windowObj,element);
+            let Machine = element[0];
+            let Button = element[1];
+            let OutPut = element[2];
+            let DeviceID = element[3];
+
+            let Password = element[6];
+            if (Password == null) {
+              Password = "";
+            }
+            buildMap.Machine = Machine;
+            buildMap.Button = Button;
+            buildMap.OutPut = OutPut;
+            buildMap.DeviceID = DeviceID;
+            buildMap.Password = Password;
+            buildMap.Building = buildName;
+            buildMap.Estate = estateName;
+            buildMaps.push(buildMap);
+          }
+          estate.Buildings = buildMaps;
+
+          estates.push(estate);
+        }
+      }
+      
+      if (processDataResultCallBack) {
+        processDataResultCallBack(estates);
+      }
+    }}else{
+      
+        throw new Error("in data is null");
+      
+    }
+}

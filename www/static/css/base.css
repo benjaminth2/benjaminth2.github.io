@@ -1,0 +1,160 @@
+/*GOOGLE FONTS*/
+/* cyrillic-ext300 */
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    src: local("Roboto Light"),local("Roboto-Light"),url(../../static/font/cyrillic-ext300.woff2) format("woff2");
+    unicode-range: u+0460-052f,u+20b4,u+2de0-2dff,u+a640-a69f
+}
+/* cyrillic300 */
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    src: local("Roboto Light"),local("Roboto-Light"),url(../../static/font/cyrillic300.woff2) format("woff2");
+    unicode-range: u+0400-045f,u+0490-0491,u+04b0-04b1,u+2116
+}
+/* latin-ext300 */
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    src: local("Roboto Light"),local("Roboto-Light"),url(../../static/font/latin-ext300.woff2) format("woff2");
+    unicode-range: u+0100-024f,u+1e??,u+20a0-20ab,u+20ad-20cf,u+2c60-2c7f,u+a720-a7ff
+}
+/* latin300 */
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    src: local("Roboto Light"),local("Roboto-Light"),url(../../static/font/latin300.woff2) format("woff2");
+    unicode-range: u+00??,u+0131,u+0152-0153,u+02c6,u+02da,u+02dc,u+2000-206f,u+2074,u+20ac,u+2212,u+2215
+}
+/* cyrillic-ext400 */
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    src: local("Roboto"),local("Roboto-Regular"),url(../../static/font/cyrillic-ext400.woff2) format("woff2");
+    unicode-range: u+0460-052f,u+20b4,u+2de0-2dff,u+a640-a69f
+}
+/* cyrillic400 */
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    src: local("Roboto"),local("Roboto-Regular"),url(../../static/font/cyrillic400.woff2) format("woff2");
+    unicode-range: u+0400-045f,u+0490-0491,u+04b0-04b1,u+2116
+}
+/* latin-ext400 */
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    src: local("Roboto"),local("Roboto-Regular"),url(../../static/font/latin-ext400.woff2) format("woff2");
+    unicode-range: u+0100-024f,u+1e??,u+20a0-20ab,u+20ad-20cf,u+2c60-2c7f,u+a720-a7ff
+}
+/* latin400 */
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    src: local("Roboto"),local("Roboto-Regular"),url(../../static/font/latin400.woff2) format("woff2");
+    unicode-range: u+00??,u+0131,u+0152-0153,u+02c6,u+02da,u+02dc,u+2000-206f,u+2074,u+20ac,u+2212,u+2215
+}
+/* cyrillic-ext500 */
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    src: local("Roboto Medium"),local("Roboto-Medium"),url(../../static/font/cyrillic-ext500.woff2) format("woff2");
+    unicode-range: u+0460-052f,u+20b4,u+2de0-2dff,u+a640-a69f
+}
+/* cyrillic500 */
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    src: local("Roboto Medium"),local("Roboto-Medium"),url(../../static/font/cyrillic500.woff2) format("woff2");
+    unicode-range: u+0400-045f,u+0490-0491,u+04b0-04b1,u+2116
+}
+/* latin-ext500 */
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    src: local("Roboto Medium"),local("Roboto-Medium"),url(../../static/font/latin-ext500.woff2) format("woff2");
+    unicode-range: u+0100-024f,u+1e??,u+20a0-20ab,u+20ad-20cf,u+2c60-2c7f,u+a720-a7ff
+}
+/* latin500 */
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    src: local("Roboto Medium"),local("Roboto-Medium"),url(../../static/font/latin500.woff2) format("woff2");
+    unicode-range: u+00??,u+0131,u+0152-0153,u+02c6,u+02da,u+02dc,u+2000-206f,u+2074,u+20ac,u+2212,u+2215
+}
+
+
+
+/*Voltaire FONT*/
+@font-face {
+    font-family: voltaire;
+    src: url('../../static/font/voltaire.eot');
+    src: url('../../static/font/voltaire.eot') format('embedded-opentype'), url('../../static/font/voltaire.woff2') format('woff2'), url('../../static/font/voltaire.woff') format('woff'), url('../../static/font/voltaire.ttf') format('truetype'), url('../../static/font/voltaire.svg#voltaire') format('svg');
+}
+
+/*FONTELLO*/
+@font-face {
+    font-family: fontello;
+    src: url('../../static/font/fontello.eot?205092');
+    src: url('../../static/font/fontello.eot?205092#iefix') format('embedded-opentype'), url('../../static/font/fontello.woff2?205092') format('woff2'), url('../../static/font/fontello.woff?205092') format('woff'), url('../../static/font/fontello.ttf?205092') format('truetype'), url('../../static/font/fontello.svg?205092#fontello') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class*=" icon-"]:before, [class^=icon-]:before {
+    font-family: fontello;
+    font-style: normal;
+    font-weight: 400;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+
+.icon-lock:before { content: '\e800'; } /* 'о Ђ' */
+.icon-mail:before { content: '\e801'; } /* 'о Ѓ' */
+.icon-logout:before { content: '\e802'; } /* 'о ‚' */
+.icon-cw:before { content: '\e803'; } /* 'о ѓ' */
+.icon-child:before { content: '\e804'; } /* 'о „' */
+.icon-cw-1:before { content: '\e805'; } /* 'о …' */
+.icon-th-list:before { content: '\e806'; } /* 'о †' */
+.icon-th:before { content: '\e807'; } /* 'о ‡' */
+.icon-left:before { content: '\e808'; } /* 'о €' */
+.icon-plus:before { content: '\e809'; } /* 'о ‰' */
+.icon-cog:before { content: '\e80a'; } /* 'о Љ' */
+.icon-search:before { content: '\e80b'; } /* 'о ‹' */
+.icon-down-dir:before { content: '\e80c'; } /* 'о Њ' */
+.icon-up-dir:before { content: '\e80d'; } /* 'о Ќ' */
+.icon-up:before { content: '\e80e'; } /* 'о Ћ' */
+.icon-clock:before { content: '\e819'; } /* 'о ™' */
+.icon-right-open-1:before { content: '\f006'; } /* 'пЂ†' */
+.icon-left-open-1:before { content: '\f007'; } /* 'пЂ‡' */
+.icon-table:before { content: '\f0ce'; } /* 'пѓЋ' */
+.icon-angle-right:before { content: '\f105'; } /* 'п„…' */
+.icon-ok-squared:before { content: '\f14a'; } /* 'п…Љ' */
+.icon-female:before { content: '\f182'; } /* 'п†‚' */
+.icon-male:before { content: '\f183'; } /* 'п†ѓ' */
+.icon-bank:before { content: '\f19c'; } /* 'п†њ' */
+.icon-calendar:before { content: '\f4c5'; } /* 'п“…' */

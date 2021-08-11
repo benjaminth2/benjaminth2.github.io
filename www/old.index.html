@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>EYE exam</title>
+    <script type="text/javascript" src='static/js/jssdk/plugin/DataProcessUtil.js'></script>
+    <script type="text/javascript" src='static/js/jssdk/plugin/DataInitUtil.js'></script>
+    <script type="text/javascript" src='static/js/jssdk/plugin/xor-crypt.min.js'></script>
+    <script type="text/javascript" src='static/js/jssdk/plugin/DoorMasterSdkUtil.js'></script>
+    <script type="text/javascript" src='static/js/jssdk/plugin/OtherUtil.js'></script>
+    <script type="text/javascript" src='static/js/jssdk/plugin/DbUtil.js'></script>
+    <script type="text/javascript" id="appJs" src="static/js/jssdk/app.js"></script>
+    <script type="text/javascript" src='static/js/index.js'></script>
+    <script type="text/javascript" src="static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="static/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="static/js/swiper.min.js"></script>
+    <script type="text/javascript" src="static/js/swiper-init.js"></script>
+    <style>
+        html {
+            -webkit-user-select: none;
+        }
+        
+        body {
+            background-color: white;
+            margin: 0;
+        }
+        
+        ul.bottom-navigation__icons {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            margin: auto;
+        }
+        
+        li {
+            text-align: center;
+            height: 22px;
+            padding-left: calc((100% - 66px) / 6);
+            padding-right: calc((100% - 66px) / 6);
+        }
+        
+        .bottom-navigation {
+            width: 100%;
+            position: fixed;
+            display: block;
+            /* transform: translateY(calc(100vh - 100%)); */
+            bottom: 5px;
+        }
+        
+        div#bottom-toolbar {
+            position: unset;
+            width: fit-content;
+            bottom: 0;
+        }
+        
+        img {
+            max-height: 22px;
+        }
+        
+        .panel__navigation {
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .swiper-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .slider-links.slider-init-top .swiper-slide-active .caption__link a {
+            background-color: #2b478b;
+            color: #f6f9fa;
+        }
+        
+        .main-nav {
+            width: calc(100% - 80px);
+            padding: 40px;
+            font-size: 20px;
+        }
+        
+        .user-details {
+            padding: 40px 0 0 40px;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+    <script>
+        jQuery(document).ready(function() {
+            setTimeout(function() {
+                var isIpad = device.model.includes("iPad");
+                if (isIpad) {
+                    var iframe = jQuery("#content-frame");
+                    iframe.height(iframe.height() + 60);
+                }
+                var isIOS = device.platform.includes("iOS");
+                if (isIOS) {
+                    jQuery("#privacy-link").attr("href", "privacy.html");
+                    jQuery("#terms-link").attr("href", "terms.html");
+                }
+            }, 350);
+        });
+    </script>
+</head>
+
+<body>
+
+    <!-- Overlay panel -->
+    <div class="body-overlay"></div>
+    <!-- Left panel -->
+    <div class="panel panel--left">
+        <!-- Slider -->
+        <div class="panel__navigation">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="user-details" style="padding: 0; margin-top: 40px;">
+                        <img src="static/images/logo_full_dark.png" alt="" title="" style="width: 60%; margin-left: 20%; margin-right: 20%;" />
+                        <!-- <div class="user-details__thumb"><img src="static/images/photos/image-21.jpg" alt="" title=""/></div>
+                          <div class="user-details__title"><span>Hello</span> Samantha Joy</div> -->
+                    </div>
+                    <nav class="main-nav">
+                        <ul>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="content-frame.html" onclick="javascript:window.dismissPanel();" target="content-frame"><img src="static/images/icons/gradient-orange/home.svg" alt="" title="" /><span>Home</span></a>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0)" onclick="javascript:window.dismissPanel(); alert('No information stored');" target="content-frame"><img src="static/images/icons/gradient-orange/tables.svg" alt="" title="" /><span>Frequently Used</span></a>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0)" onclick="javascript:window.dismissPanel(); alert('No information stored');" target="content-frame"><img src="static/images/icons/gradient-orange/search.svg" alt="" title="" /><span>Search Saved</span></a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="javascript:window.dismissPanel(); doQrCodeScanAndGo();"><img src="static/images/icons/gradient-orange/scan.png" alt="" title="" /><span>Scan QR Code</span></a>
+                            </li>
+                            <li class="divider"></li>
+                            <!-- <li><a href="user-profile.html" onclick="javascript:window.dismissPanel();" target="content-frame"><img src="static/images/icons/gradient-orange/settings.svg" alt="" title="" /><span>Settings</span></a></li> -->
+                            <li>
+                                <a id="about-link" href="about.html"><img src="static/images/icons/gradient-orange/form.svg" alt="" title="" /><span>About</span></a>
+                            </li>
+                            <li>
+                                <a id="privacy-link" href="privacy-google.html"><img src="static/images/icons/gradient-orange/form.svg" alt="" title="" /><span>Privacy Policy</span></a>
+                            </li>
+                            <li>
+                                <a id="terms-link" href="terms-google.html"><img src="static/images/icons/gradient-orange/form.svg" alt="" title="" /><span>Terms</span></a>
+                            </li>
+                            <!-- <li><a href="contact.html"><img src="static/images/icons/gradient-orange/contact.svg" alt="" title="" /><span>Contact</span></a></li>
+                              <li><a href="splash.html"><img src="static/images/icons/gradient-orange/logout.svg" alt="" title="" /><span>Logout</span></a></li> -->
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div id="panel-left"></div> -->
+
+    <div class="page page--main" data-page="shop">
+
+        <!-- HEADER -->
+
+        <!-- PAGE CONTENT -->
+        <!-- iOS -->
+        <iframe id="content-frame" name="content-frame" src="settings.html" style="    background-color: transparent;
+        border: 0;
+        width: 100%;
+        height: calc(100vh - 50px);"></iframe>
+        <!-- non-iOS -->
+        <!-- <iframe id="content-frame" name="content-frame" src="settings.html" style="background-color: transparent; border: 0; margin-top: 67px; width: 100%; height: calc(100vh - 67px - 57px);"></iframe> -->
+
+    </div>
+    <!-- PAGE END -->
+
+    <!-- Bottom navigation -->
+    <div id="bottom-toolbar" class="bottom-toolbar">
+        <div class="bottom-navigation">
+            <ul class="bottom-navigation__icons">
+                <li>
+                    <a href="eyechart.html" target="content-frame"><img src="static/images/icons/gradient-orange/home.svg" alt="" title="" /></a>
+                </li>
+                <li>
+                    <a href="settings.html" target="content-frame"><img src="static/images/icons/gradient-orange/tables.svg" alt="" title="" /></a>
+                </li>
+                <li>
+                    <a href="colorblind.html" target="content-frame"><img src="static/images/icons/gradient-orange/search.svg" alt="" title="" /></a>
+                </li>
+                <!-- <li>
+                    <a href="#" onclick="doQrCodeScanAndGo()"><img src="static/images/icons/gradient-orange/scan.png" alt="" title="" /></a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Social Icons Popup -->
+    <div id="popup-social"></div>
+
+    <!-- Alert -->
+    <div id="popup-alert"></div>
+
+    <!-- Notifications -->
+    <div id="popup-notifications"></div>
+
+    <script type="text/javascript" src="static/js/jquery.custom.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <script src="../dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="../theme-material-ui/material-ui.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <style>
+        body {
+            margin: 0;
+        }
+        
+        @font-face {
+            font-family: "Essilor";
+            src: url(Essilor.ttf);
+        }
+        
+        div.main {
+            height: 100vh;
+            width: 100vw;
+        }
+        
+        div.main img {
+            max-width: 90vw;
+            max-height: 45vh;
+            transform: translate(calc(50vw - 50%), calc(30vh - 50%));
+        }
+        
+        .question {
+            position: fixed;
+            bottom: 5vh;
+            text-align: center;
+            width: 100vw;
+            margin: 0;
+        }
+        
+        .question button {
+            width: fit-content;
+        }
+        
+        .question input {
+            width: 20vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content">
+            <img src="./visionCouleur1.png" alt="">
+        </div>
+        <div class="swal2-html-container question">What number do you see?
+            <br>
+            <input class="swal2-input" type="number" name="" id="">
+            <button class="swal2-confirm swal2-styled">Confirm</button>
+            <br> If you don't see any number, enter the letter X
+        </div>
+    </div>
+    <script src="../jquery.min.js" src="VisualAcuity.html"></script>
+    <script>
+        var nextTest = "./AMD.html";
+        var result = true;
+        var questionNo = 0;
+        var image = ["./visionCouleur1.png", "./visionCouleur2.png", "./visionCouleur3.png", "./visionCouleur4.png", "./visionCouleur5.png", "./visionCouleur6.png"]
+        var ans = [12, 29, 15, 97, 16, "X"]
+        var message = ["Everyone should see the number 12.",
+            "People with normal vision are seeing 29. Those with color deficiency may see 70 or nothing.",
+            "People with normal vision are seeing 15. Those with color deficiency may see 17 or nothing.",
+            "People with normal vision are seeing 97. Those with color deficiency may see nothing.",
+            "People with normal vision are seeing 16. Those with color deficiency may see nothing.",
+            "People with normal vision are seeing nothing. Those with color deficiency may see a 5."
+        ]
+
+        function showresult() {
+            if (result) {
+                Swal.fire({
+                    title: "Congratulations, you don't seem to have a color perception problem.",
+                    icon: "success",
+                    text: "Feel free to redo this test regularly to monitor your vision.",
+                    confirmButtonText: "Retry",
+                    showDenyButton: true,
+                    denyButtonText: "Go to next test"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.reload();
+                    } else if (result.isDenied) {
+                        location.href = nextTest;
+                    }
+                })
+            } else {
+                Swal.fire({
+                    title: "You most likely have some colour vision difficulties.",
+                    icon: "error",
+                    text: "We recommend you evaluate your vision with an eye care professional.",
+                    confirmButtonText: "Retry",
+                    showDenyButton: true,
+                    denyButtonText: "Go to next test"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.reload();
+                    } else if (result.isDenied) {
+                        location.href = nextTest;
+                    }
+                })
+            }
+        }
+
+        Swal.fire("Place yourself 40 centimeters from the screen.");
+        $("div.content img").attr("src", image[questionNo])
+        $("div.question button").click(function() {
+            if (ans[questionNo] == $("input").val().trim().toUpperCase()) {
+                Swal.fire({
+                    title: "Your answer is correct.",
+                    icon: "success",
+                    text: message[questionNo],
+                    confirmButtonText: "Next",
+                    preConfirm: function() {
+                        if (questionNo == 6) {
+                            showresult();
+                        }
+                    }
+                })
+            } else {
+                result = false;
+                Swal.fire({
+                    title: "Your answer is incorrect.",
+                    icon: "error",
+                    text: message[questionNo],
+                    confirmButtonText: "Next",
+                    preConfirm: function() {
+                        if (questionNo == 6) {
+                            showresult();
+                        }
+                    }
+                })
+            }
+            $("input").val("");
+            questionNo++;
+            $("div.content img").attr("src", image[questionNo])
+        })
+    </script>
+</body>
+
+</html>

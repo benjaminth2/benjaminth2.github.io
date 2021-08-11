@@ -1,0 +1,132 @@
+var DoorMasterSdkUtil = {};
+
+DoorMasterSdkUtil.debug=true
+DoorMasterSdkUtil.dbName='encrypted.db';
+DoorMasterSdkUtil.key='encrypted';
+DoorMasterSdkUtil.queryDeviceDataFromDb = function (windowObj, deviceid, cbfn) {
+  if (windowObj) {
+    if (windowObj.sqlitePlugin) {
+      var db = windowObj.sqlitePlugin.openDatabase({
+        name: DoorMasterSdkUtil.dbName, //'unencrypted.db',
+        key: DoorMasterSdkUtil.key,
+        location: 0,
+      });
+      var sql = 'select * from dev where id = "' + deviceid + '"';
+      windowObj.app.showDataFn(windowObj, db != null);
+      windowObj.app.showDataFn(windowObj, sql);
+      db.executeSql(
+        sql,
+        [],
+        function (rs) {
+          var str = "Record count (expected to be n): " + rs.rows.item(0);
+          windowObj.app.showDataFn(windowObj, str);
+          if (cbfn) {
+            //windowObj.app.showDataFn(windowObj,typeof(rs.rows.item(0)))
+            cbfn(rs.rows.item(0));
+          }
+        },
+        function (error) {
+          
+            windowObj.app.showDataFn(windowObj, error);
+          
+        }
+      );
+    }
+  }
+};
+
+DoorMasterSdkUtil.doJsAction = function (
+  windowObj,
+  actionCode,
+  actionData,
+  dataSucessCallBackFn,
+  dataErrorCallBackFn
+) {
+  //actionCode 支持openDoor，actionData是格式化成str格式的map，JSON.stringify(deviceContent)
+
+  //console.log(actionCode)
+  if (windowObj) {
+    var cordova = windowObj.cordova;
+    if (cordova) {
+      console.log("getSqliteDbData");
+      windowObj.app.showDataFn(windowObj, actionCode);
+      windowObj.app.showDataFn(windowObj, actionData);
+
+      cordova.plugins.CommunicationHelper.doJsAction(
+        actionCode,
+        actionData,
+        function (returnData) {
+          if (returnData) {
+            if (dataSucessCallBackFn) {
+              dataSucessCallBackFn(returnData);
+            }
+          }
+        },
+        function (errorData) {
+          if (errorData) {
+            if (dataErrorCallBackFn) {
+              dataErrorCallBackFn(errorData);
+            }
+          }
+        }
+      );
+    }
+  }
+};
+
+DoorMasterSdkUtil.openDoor = function (
+    windowObj,
+  deviceId,
+  outPut,
+  dataCallBackFn
+) {
+  
+  var dataCallBackFn_ = function (resultData) {
+    if (resultData) {
+      if (dataCallBackFn) {
+        dataCallBackFn(returnData);
+      }
+    }
+  };
+
+    //alert("1116")
+  if (windowObj) {
+    var cordova = windowObj.cordova;
+    if (cordova) {
+      var platformId = cordova.platformId;
+      if (platformId) {
+        if (platformId == "android") {
+          if (outPut!=null) {
+            windowObj.app.showDataFn("1117")
+            if (outPut == 0) {
+              windowObj.OpenDooFlag = true;
+            } else {
+              windowObj.OpenDooFlag = false;
+            }
+            var data={  'DeviceId': deviceId,'Output': outPut}
+            var inDataStr = JSON.stringify(data);
+                this.doJsAction(windowObj, "openDoor", inDataStr, dataCallBackFn_);
+          }
+
+        } else {
+          DoorMasterSdkUtil.queryDeviceDataFromDb(windowObj,deviceId,function(res){
+              if(res){
+            if (outPut!=null) {
+                if (outPut == 0) {
+                  windowObj.OpenDooFlag = false;
+                } else {
+                  windowObj.OpenDooFlag = true;
+                }
+                var data={  'DeviceId': deviceId,'Output': outPut}
+                res.Output=outPut
+                var inDataStr = JSON.stringify(res);
+                    this.doJsAction(windowObj, "openDoor", inDataStr, dataCallBackFn_);
+              }}
+          })
+        }
+      }
+    }
+  }
+
+
+};

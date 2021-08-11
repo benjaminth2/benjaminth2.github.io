@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--[if lt IE 10]>
+<html lang='en' class='old_ie'>
+<![endif]-->
+
+<html lang=en>
+
+<head>
+    <meta charset="utf-8" />
+    <title>WolfChart</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAdCAMAAAD8QJ61AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADBQTFRFqamphoaGxcXF1tbW9/f3U1NTLi4uurq64+PjnZ2ddHR07Ozsk5OTAAAA////////NZC25gAAABB0Uk5T////////////////////AOAjXRkAAAFRSURBVHjadFNZYsUgCATU4AJ6/9sWFVP72vJhCA4wLMK4hUoYHwKXHgp3xj4I+C9AQw6994ZIHZjpF6DGviTPL2YuF4ARGofoCJfSDyDX3CPUzuXc1XlAPAB0c3pcacozC0rcAHeMj4IH0LotAjcAVB8PoOqxpBtAyDOYPewAqu5U4oCSPYOZNU1tKk4nWYRDXXRdPM/66nZrGF5A0h9ySsOTIv68PzkMELEtOh+AzXcCRsS8M6QyD+OQxI6rFeK1W5+qNrSPvDkwOsBrsMhozutntpvZGhXhroHq0VZP0AB5QjOk3QA+0Af3zGE09lYuZ5q4BOS7gfe4eycj+uzYPovJYQSp4SyCyilwjS37yr0xzP2d5AxwdjLQPRDrbFi8iN6txskpeztsd4SsvRG/1z4ai1BFxEAFZT4vKNLudwE2lRHJctH/T8+klPJh+RJgAA5sKxGB5VuMAAAAAElFTkSuQmCC"
+    />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="dpi"></div>
+    <div class="setting-bar active" id="setting-bar">
+        <form action="" method="" id="form-setting">
+            <legend>Settings</legend>
+            <fieldset>
+                <div class="title">
+                    <a class="questions-btn" href="#character-set">?</a> <span>OPTOTYPES</span>
+                </div>
+                <div class="form-group" id="fgOptotype">
+                    <label class="col-2" for="sOptotype">Optotype</label>
+                    <div class="col-8 select-box">
+                        <select class="form-control" id="sOptotype">
+                            <option value="1">Snellen</option>
+                            <option value="2">Sloan</option>
+                            <option value="3">LandoltC</option>
+                            <option value="4">TumblingE</option>
+                            <!-- <option value="5">Vanishing Sloan</option> -->
+                            <option value="6">Shapes</option>
+                            <!-- <option value="7">Chinese (beta)</option>
+                            <option value="8">Arabic (beta)</option>
+                            <option value="9">Hebrew</option> -->
+                            <!-- <option value="10">Crowded HOTV</option> -->
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" id="fgAlphabet">
+                    <label class="col-2" for="sAlphabet">Alphabet</label>
+                    <div class="col-8 select-box">
+                        <select class="form-control" id="sAlphabet">
+                            <option value="2">BS4274.3</option>
+                            <option value="1">SnellenU</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="title">
+                    <a class="questions-btn" href="#distance">?</a> <span>RECORDING</span>
+                </div>
+                <div class="form-group" id="fgNotation">
+                    <label class="col-2" for="sNotation">Notation</label>
+                    <div class="col-8 select-box">
+                        <select class="form-control" id="sNotation">
+                            <option value="1">Metres</option>
+                            <option value="2">Feet</option>
+                            <option value="3">logMAR</option>
+                            <option value="4">DecimalV</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" id="fgNumerator">
+                    <label class="col-2" for="sNumerator">Numerator</label>
+                    <div class="col-8 select-box">
+                        <select class="form-control" id="sNumerator">
+                            <option value="2">Standard</option>
+                            <option value="1">Actual</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="title">
+                    <a class="questions-btn" href="#calibration">?</a> <span>CALIBRATION</span>
+                </div>
+                <div class="form-group" id="fgDistance">
+                    <label class="col-2" for="iDistance">Distance <span style="color:red">*</span></label>
+                    <div class="col-8 ">
+                        <input type="text" class="form-control input-sm" id="iDistance" title="Chart Distance" min="3000"> <span class="unit">mm</span>
+                    </div>
+                </div>
+                <div class="form-group" id="fgLengthOfLine">
+                    <label class="col-2" for="iLengOfLine">Length of line below<span style="color:red">*</span></label>
+                    <div class="col-8 ">
+                        <input type="text" class="form-control input-sm" id="iLengOfLine" title="Length of Calibration Line" min="25" max="250"> <span class="unit">mm</span> <span class="red">(be precise)</span>
+                    </div>
+                </div>
+                <div class="rule form-group">
+                    <label>
+                        <svg width="50mm" viewBox="0 0 50 1" xmlns="http://www.w3.org/2000/svg">
+                            <rect fill="rgba(20,220,30,1)" stroke="none" x="0" y="0" width="50" height="1"
+                                id="calib_line" />
+                        </svg>
+                    </label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="title">
+                    <a class="questions-btn" href="#options">?</a> <span>options</span>
+                </div>
+                <div class="form-group" id="fgSort">
+                    <label class="col-2" for="display">Sort</label>
+                    <div class="col-8 select-box">
+                        <select class="form-control" id="display">
+                            <option value="1" selected>Smallest to Largest</option>
+                            <option value="2">Largest to Smallest</option>
+                            <option value="3">Monoyer</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" id="fgMirrored">
+                    <label class="col-2" for="sMirrored">Mirrored / Direct</label>
+                    <div class="col-8 select-box">
+                        <select class="form-control" id="sMirrored">
+                            <option value="2">Mirrored</option>
+                            <option value="1" selected="selected">Direct</option>
+                        </select>
+                    </div>
+                </div>
+                <hr class="fg-divider" />
+                <div class="form-group" id="fgOptoColour">
+                    <label class="col-2" for="tOptoColour">Optotype colour</label>
+                    <div class="col-setting">
+                        <input type="text" id="tOptoColour" class="form-control input" value="rgba(0,0,0,1)" /><i> </i>
+                    </div>
+                </div>
+                <div class="form-group" id="fgPresetsOpto">
+                    <label class="col-2" for="bt100Blk">Presets: <button class="btn btn-tiny col-preset-opto"
+                            id="bt100Blk" type="button" value="rgba(0,0,0,1)">100% Black</button>
+                    </label>
+                    <div class="">
+                        <button class="btn btn-tiny col-preset-opto" id="bt10Blk" type="button" value="rgba(0,0,0,0.1)">10% Black</button>
+                        <button class="btn btn-tiny col-preset-opto" id="bt100Red" type="button" value="rgba(255,0,0,1)">100% Red</button>
+                        <button class="btn btn-tiny col-preset-opto" id="bt100Blue" type="button" value="rgba(0,0,255,1)">100% Blue</button>
+                    </div>
+                </div>
+                <hr class="fg-divider" />
+                <div class="form-group" id="fgBgColour">
+                    <label class="col-2" for="tBgColour">Background colour</label>
+                    <div class="col-setting">
+                        <input type="text" id="tBgColour" class="form-control input" value="rgba(255,255,255,1)" /><i></i>
+                    </div>
+                </div>
+                <div class="form-group" id="fgPresetsBg">
+                    <label class="col-2" for="bt100Wh">Presets: <button class="btn btn-tiny col-preset-bg" id="bt100Wh"
+                            type="button" value="rgba(255,255,255,1)">100% White</button>
+                    </label>
+                    <div class="">
+                        <button class="btn btn-tiny col-preset-bg" id="bt90Blk" type="button" value="rgba(0,0,0,0.9)">90% Black</button>
+                        <button class="btn btn-tiny col-preset-bg" id="bt50Blk" type="button" value="rgba(0,0,0,0.5)">50% Black (mid-grey)</button>
+
+                    </div>
+                </div>
+
+            </fieldset>
+            <fieldset>
+                <div class="title">
+                    <a class="questions-btn" href="#filters">?</a> <span>r/l filters</span>
+                </div>
+                <div class="filter-hue">
+                    <div class="form-group" id="fgFilterRed">
+                        <label class="col-2" for="sliderRed">Filter Red Hue</label>
+                        <div class="">
+                            <input type="range" min="340" max="380" value="360" class="slider red-slide" id="sliderRed">
+                        </div>
+                    </div>
+                    <div class="form-group" id="fgFilterGreen">
+                        <label class="col-2" for="sliderGreen">Filter Green/Blue Hue</label>
+                        <div class="">
+                            <input type="range" min="110" max="200" value="160" class="slider green-slide" id="sliderGreen">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="title">
+                    <a class="questions-btn" href="#shortcuts">?</a> <span>shortcuts</span>
+                </div>
+                <div class="form-group" id="fgPageUL">
+                    <label class="col-4" for="pageUp">Page Up</label>
+                    <div class="col-12">
+                        <input type="text" class="form-control input-sm js-shortkey" id="pageUp" maxlength="1" value="u">
+                    </div>
+                    <label class="col-4" for="pageLeft">Page Left</label>
+                    <div class="col-12">
+                        <input type="text" class="form-control input-sm js-shortkey" id="pageLeft" maxlength="1" value="g">
+                    </div>
+                </div>
+                <div class="form-group" id="fgPageDR">
+                    <label class="col-4" for="pageDown">Page Down</label>
+                    <div class="col-12">
+                        <input type="text" class="form-control input-sm js-shortkey" id="pageDown" maxlength="1" value="n">
+                    </div>
+                    <label class="col-4" for="pageRight">Page Right</label>
+                    <div class="col-12">
+                        <input type="text" class="form-control input-sm js-shortkey" id="pageRight" maxlength="1" value="k">
+                    </div>
+                </div>
+                <div class="form-group" id="fgShuffle">
+                    <label class="col-1" for="shuffle">Toggle Shuffle</label>
+                    <div class="col-12">
+                        <input type="text" class="form-control input-sm js-shortkey" id="shuffle" maxlength="1" value="q">
+                    </div>
+                </div>
+                <div class="form-group" id="fgDuochrome">
+                    <label class="col-1" for="duoBG">Toggle Duochrome</label>
+                    <div class="col-12">
+                        <input type="text" class="form-control input-sm js-shortkey" id="duoBG" maxlength="1" value="z">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="footer-fieldset">
+                <div class="action-button">
+                    <button class="btn btn-default" id="reset" type="button">Reset to defaults</button>
+                    <a href="eyechart.html">
+                        <button class="btn btn-default" id="updateSetting" type="button">Save</button>
+                    </a>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <script src="app.js">
+    </script>
+    <script src="cordova.js"></script>
+</body>
+
+</html>

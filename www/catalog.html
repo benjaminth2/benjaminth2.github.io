@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        @font-face {
+            font-family: 'Font Awesome 5 Free';
+            font-style: normal;
+            font-weight: 400;
+            font-display: block;
+            src: url("./fa/webfonts/fa-regular-400.eot");
+            src: url("./fa/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("./fa/webfonts/fa-regular-400.woff2") format("woff2"), url("./fa/webfonts/fa-regular-400.woff") format("woff"), url("./fa/webfonts/fa-regular-400.ttf") format("truetype"), url("./fa/webfonts/fa-regular-400.svg#fontawesome") format("svg");
+        }
+        
+        @font-face {
+            font-family: "Essilor";
+            src: url(./essilor/Essilor.ttf);
+        }
+        
+        a {
+            font-size: 0.7em;
+            padding: 3vw;
+            max-width: 30vw;
+            text-align: center;
+            color: black;
+            text-decoration: none;
+        }
+        
+        li a i.E::before {
+            font-family: "Essilor";
+            content: "\e932";
+        }
+        
+        li a i.Astigmatism::before {
+            font-family: "Essilor";
+            content: "\e92d";
+        }
+        
+        li a i.C::before {
+            font-family: "Essilor";
+            content: "\e930";
+        }
+        
+        li a i.AMD::before {
+            font-family: "Essilor";
+            content: "\e931";
+        }
+        
+        .cogs::before {
+            font-family: 'Font Awesome 5 Free';
+            content: "\f085";
+            font-weight: 900;
+        }
+        
+        .sticky-note::before {
+            font-family: 'Font Awesome 5 Free';
+            content: "\f249";
+            font-weight: 900;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            width: 85vw;
+            overflow: hidden;
+            margin: 0;
+        }
+        
+        i {
+            font-style: normal;
+            width: 30vw;
+            font-size: 25vw;
+            transform: translateX(-5vw);
+        }
+        
+        img {
+            width: 25vw;
+        }
+        
+        li {
+            width: 30vw;
+            height: calc(30vw + 1em);
+            overflow: visible;
+            display: inline-block;
+            padding: 5vw;
+        }
+        
+        a>div {
+            text-align: center;
+        }
+        
+        body {
+            margin: 0;
+        }
+        
+        body>div {
+            width: fit-content;
+            transform: translateX(calc(50vw - 50%));
+        }
+    </style>
+    <link rel="stylesheet" href="fa/css/all.css">
+    <!-- Bootstrap CSS -->
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>
+                <a href="eyechart.html" target="content-frame">
+                    <i class="sticky-note" aria-hidden="true"></i><br>
+                    <div>Eye Chart</div>
+                </a>
+            </li>
+            <li>
+                <a href="settings.html" target="content-frame">
+                    <i class="cogs" aria-hidden="true"></i><br>
+                    <div>Eye Chart Settings</div>
+                </a>
+            </li>
+            <li>
+                <a href="./essilor/VisualAcuity.html" target="content-frame">
+                    <i class="E"></i><br>
+                    <div>Visual Acuity</div>
+                </a>
+            </li>
+            <li>
+                <a href="./essilor/Astigmatism.html" target="content-frame">
+                    <i class="Astigmatism"></i><br>
+                    <div>Astigmatism</div>
+                </a>
+            </li>
+            <li>
+                <a href="./essilor/LightSensitivity.html" target="content-frame">
+                    <i class="C"></i><br>
+                    <div>Light Sensitivity</div>
+                </a>
+            </li>
+            <li>
+                <a href="./essilor/NearVision.html" target="content-frame">
+                    <i class="NearVision"><img src="./essilor/icon_viewtest-closest1.png" alt=""></i><br>
+                    <div>Near Vision 1</div>
+                </a>
+            </li>
+            <li>
+                <a href="./essilor/NearVision2.html" target="content-frame">
+                    <i class="NearVision2"><img src="./essilor/icon_viewtest-closest.png" alt=""></i><br>
+                    <div>Near Vision 2</div>
+                </a>
+            </li>
+            <li>
+                <a href="./essilor/ColorVision.html" target="content-frame">
+                    <i class="ColorVision"><img src="./essilor/icon_viewtest-colors.png" alt=""></i><br>
+                    <div>Color Vision</div>
+                </a>
+            </li>
+            <li>
+                <a href="./essilor/AMD.html" target="content-frame">
+                    <i class="AMD"></i><br>
+                    <div>AMD</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

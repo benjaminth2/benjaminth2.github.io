@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--[if lt IE 10]>
+<html lang='en' class='old_ie'>
+<![endif]-->
+
+<html lang=en>
+
+<head>
+    <meta charset="utf-8" />
+    <title>WolfChart</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAdCAMAAAD8QJ61AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADBQTFRFqamphoaGxcXF1tbW9/f3U1NTLi4uurq64+PjnZ2ddHR07Ozsk5OTAAAA////////NZC25gAAABB0Uk5T////////////////////AOAjXRkAAAFRSURBVHjadFNZYsUgCATU4AJ6/9sWFVP72vJhCA4wLMK4hUoYHwKXHgp3xj4I+C9AQw6994ZIHZjpF6DGviTPL2YuF4ARGofoCJfSDyDX3CPUzuXc1XlAPAB0c3pcacozC0rcAHeMj4IH0LotAjcAVB8PoOqxpBtAyDOYPewAqu5U4oCSPYOZNU1tKk4nWYRDXXRdPM/66nZrGF5A0h9ySsOTIv68PzkMELEtOh+AzXcCRsS8M6QyD+OQxI6rFeK1W5+qNrSPvDkwOsBrsMhozutntpvZGhXhroHq0VZP0AB5QjOk3QA+0Af3zGE09lYuZ5q4BOS7gfe4eycj+uzYPovJYQSp4SyCyilwjS37yr0xzP2d5AxwdjLQPRDrbFi8iN6txskpeztsd4SsvRG/1z4ai1BFxEAFZT4vKNLudwE2lRHJctH/T8+klPJh+RJgAA5sKxGB5VuMAAAAAElFTkSuQmCC"
+    />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <img src="1.png" style="width: 100%;max-height: 100%;">
+    </div>
+    <div class="action-button" style="
+    transform: translate(calc(100vw - 100%), calc(100vh - 100%));
+    position: absolute;
+    top: 0;
+">
+        <button class="btn btn-default" type="button" style="" onclick="javascript:nextimage()">Next</button>
+    </div>
+    <script>
+        var count = 1;
+
+        function nextimage() {
+            count++;
+            if (count == 10) {
+                count = 1;
+            }
+            $('img').attr("src", count + ".png");
+        }
+    </script>
+    <script src="cordova.js"></script>
+</body>
+
+</html>

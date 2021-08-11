@@ -1,0 +1,60 @@
+
+
+var app = {}
+app.debug = true;
+app.isCordova = true;
+app.showDataFn=function (data) {
+    if(app.debug){
+        alert(data)
+    }else{
+        console.log(data);
+    }
+}
+app.Init = function () {
+    if (app.isCordova) {
+        window.OpenDooFlag=false;
+        window.cordovaCallBackHandler = function (ret, OpenDooFlag) {
+            console.log("111:" + ret);
+            console.log("112:" + OpenDooFlag);
+        }
+        window.cordovaCallBack = function (retIn) {
+            if (retIn) {
+                if (retIn == 0) {
+                    if (window.cordovaCallBackHandler) {
+                        window.cordovaCallBackHandler(retIn, window.OpenDooFlag)
+                    }
+                } else {
+                    if (window.cordovaCallBackHandler) {
+                        window.cordovaCallBackHandler(retIn, window.OpenDooFlag)
+                    }
+                }
+            }
+        }
+        app.bind_action();
+    }
+    
+}
+app.bind_action=function() {
+    window.app=app;
+
+    
+
+        window.app.DataProcessUtil = DataProcessUtil;
+         window.app.DataInitUtil = DataInitUtil;
+
+        if(window.cordova.platformId != 'android' ){
+            DataInitUtil.initData();
+        }
+
+        if (app.debug) {
+            DataInitUtil.initTestData()
+        }
+        window.app.DoorMasterSdkUtil = DoorMasterSdkUtil;
+        window.app.DataProviderUtil = DataProviderUtil;
+        window.app.OtherUtil=OtherUtil
+        window.app.xorCrypt=xorCrypt
+
+    // body...
+}
+
+

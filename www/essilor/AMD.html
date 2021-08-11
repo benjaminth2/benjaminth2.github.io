@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <script src="../dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="../theme-material-ui/material-ui.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <style>
+        body {
+            margin: 0;
+        }
+        
+        @font-face {
+            font-family: "Essilor";
+            src: url(Essilor.ttf);
+        }
+        
+        div.main {
+            height: 100vh;
+            width: 100vw;
+        }
+        
+        div.main img {
+            max-width: 90vw;
+            max-height: 45vh;
+            transform: translate(calc(50vw - 50%), calc(30vh - 50%));
+        }
+        
+        .question {
+            position: fixed;
+            bottom: 5vh;
+            text-align: center;
+            width: 100vw;
+            margin: 0;
+        }
+        
+        .question button {
+            width: fit-content;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <img src="./testvue-dmla.gif" alt="">
+        <div class="swal2-html-container question">Concentrate on the central point in the grid without moving your gaze. Do you see any strong distortions in certain lines?
+            <br>
+            <button class="swal2-confirm swal2-styled" id="Yes">Yes</button>
+            <button class="swal2-confirm swal2-styled" id="No">No</button>
+        </div>
+    </div>
+    <script src="../jquery.min.js"></script>
+    <script>
+        var nextTest = "./VisualAcuity.html";
+        var left = false;
+        var right = false;
+        Swal.fire("Cover your left eye");
+        $("div.question button").click(function() {
+            if (!right) {
+                right = true;
+                Swal.fire("Cover your right eye")
+                if (this.id == "Yes") {
+                    left = true;
+                } else {
+                    left = false;
+                }
+            } else {
+                if (this.id == "Yes") {
+                    right = true;
+                } else {
+                    right = false;
+                }
+                if (left && right) {
+                    Swal.fire({
+                        title: "You saw distortions in the grid with both eyes.",
+                        text: "It's possible that this symptom is potentially linked to age-related macular degeneration (AMD). We encourage you to consult an eye doctor as quickly as possible in order to confirm this result.",
+                        icon: "error",
+                        confirmButtonText: "Retry",
+                        showDenyButton: true,
+                        denyButtonText: "Go to next test"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload();
+                        } else if (result.isDenied) {
+                            location.href = nextTest;
+                        }
+                    })
+                } else {
+                    if (left == right) {
+                        Swal.fire({
+                            title: "You didn't see any distortions in the grid.",
+                            text: "You do not seem to have any symptoms of age-related macular degeneration (AMD). Think about redoing this test regularly to monitor your vision.",
+                            icon: "success",
+                            confirmButtonText: "Retry",
+                            showDenyButton: true,
+                            denyButtonText: "Go to next test"
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload();
+                            } else if (result.isDenied) {
+                                location.href = nextTest;
+                            }
+                        })
+                    } else {
+                        Swal.fire({
+                            title: "You saw distortions in the grid with one of your eyes.",
+                            text: "It's possible that this symptom is potentially linked to age-related macular degeneration (AMD). We encourage you to consult an eye doctor as quickly as possible in order to confirm this result.",
+                            icon: "warning",
+                            confirmButtonText: "Retry",
+                            showDenyButton: true,
+                            denyButtonText: "Go to next test"
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload();
+                            } else if (result.isDenied) {
+                                location.href = nextTest;
+                            }
+                        })
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

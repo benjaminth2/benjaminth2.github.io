@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <script src="../dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="../theme-material-ui/material-ui.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <style>
+        body {
+            margin: 0;
+        }
+        
+        @font-face {
+            font-family: "Essilor";
+            src: url(Essilor.ttf);
+        }
+        
+        div.main {
+            height: 100vh;
+            width: 100vw;
+        }
+        
+        div.main img {
+            max-width: 90vw;
+            max-height: 45vh;
+            transform: translate(calc(50vw - 50%), calc(30vh - 50%));
+        }
+        
+        .question {
+            position: fixed;
+            bottom: 5vh;
+            text-align: center;
+            width: 100vw;
+            margin: 0;
+        }
+        
+        .question button {
+            width: fit-content;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content">
+            <img src="./testvue-vision_de_pres.jpg" alt="">
+        </div>
+        <div class="swal2-html-container question">Do you see darker circles on:
+            <br>
+            <button class="swal2-confirm swal2-styled" id="red">The red background</button>
+            <button class="swal2-confirm swal2-styled" id="green">The green background</button>
+            <button class="swal2-confirm swal2-styled" id="same">The same</button>
+        </div>
+    </div>
+    <script src="../jquery.min.js"></script>
+    <script>
+        var nextTest = "./ColorVision.html";
+        var left = false;
+        var right = false;
+        Swal.fire("Place yourself 40 centimeters from the screen.");
+        $("div.question button").click(function() {
+            if (this.id == "same") {
+                Swal.fire({
+                    title: "You are probably not yet presbyopic or you already have the right correction for near vision.",
+                    icon: "success",
+                    text: "Don't hesitate to do this test regularly to monitor your vision.",
+                    confirmButtonText: "Retry",
+                    showDenyButton: true,
+                    denyButtonText: "Go to next test"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.reload();
+                    } else if (result.isDenied) {
+                        location.href = nextTest;
+                    }
+                })
+            } else {
+                Swal.fire({
+                    title: "Your correction for near vision is probably too strong or you are myopic and have taken your glasses off to do this test.",
+                    icon: "error",
+                    text: "We recommend you do an eye test with an eye care professional.",
+                    confirmButtonText: "Retry",
+                    showDenyButton: true,
+                    denyButtonText: "Go to next test"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.reload();
+                    } else if (result.isDenied) {
+                        location.href = nextTest;
+                    }
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

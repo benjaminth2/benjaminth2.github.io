@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <script src="../dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="../theme-material-ui/material-ui.css">
+    <link rel="stylesheet" href="../theme-material-ui/material-ui.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <style>
+        body {
+            margin: 0;
+        }
+        
+        @font-face {
+            font-family: "Essilor";
+            src: url(Essilor.ttf);
+        }
+        
+        div.main span {
+            font-family: "Essilor";
+            font-size: 3em;
+        }
+        
+        div.main span.button#top {
+            font-size: 3em;
+            position: fixed;
+            transform: translate(calc(50vw - 50%), calc(20vh - 50%));
+        }
+        
+        div.main span.button#bottom {
+            font-size: 3em;
+            position: fixed;
+            transform: translate(calc(50vw - 50%), calc(80vh - 50%));
+        }
+        
+        div.main span.button#left {
+            font-size: 3em;
+            position: fixed;
+            transform: translate(calc(20vw - 50%), calc(50vh - 50%));
+        }
+        
+        div.main span.button#right {
+            font-size: 3em;
+            position: fixed;
+            transform: translate(calc(80vw - 50%), calc(50vh - 50%));
+        }
+        
+        div.main span.button#top::before {
+            content: "\e93f";
+        }
+        
+        div.main span.button#left::before {
+            content: "\e93d";
+        }
+        
+        div.main span.button#right::before {
+            content: "\e93e";
+        }
+        
+        div.main span.button#bottom::before {
+            content: "\e940";
+        }
+        
+        div.main span.char::before {
+            content: "\e930";
+        }
+        
+        div.main span.char {
+            font-size: 3em;
+            position: fixed;
+            width: fit-content;
+            height: fit-content;
+        }
+        
+        div.main {
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <span class="button" id="top"></span>
+        <span class="button" id="left"></span>
+        <span class="button" id="right"></span>
+        <span class="button" id="bottom"></span>
+        <span class="char"></span>
+    </div>
+    <script src="../jquery.min.js"></script>
+    <script>
+        var nextTest = "./NearVision.html";
+        var level = 0;
+        var fail = 0;
+        var direction = {
+            top: 0,
+            left: 1,
+            right: 2,
+            bottom: 3
+        };
+        var leftPass = false;
+        var rightEye = false;
+        var directionstyle = ["translate(calc(50vw - 50%), calc(50vh - 50%))",
+            "rotate(270deg) translate(calc(50% - 50vh), calc(50vw - 50%))",
+            "rotate(90deg) translate(calc(50vh - 50%), calc(50% - 50vw))",
+            "rotate(180deg) translate(calc(50% - 50vw), calc(50% - 50vh))"
+        ]
+        var currentdirection = 0;
+        var fontsize = ["#444", "#666", "#888", "#AAA", "#BBB", "#CCC"];
+        Swal.fire("Cover your left eye");
+        generatelevel();
+
+        function generatelevel() {
+            do {
+                var randnum = (Math.floor(Math.random() * 999)) % 4;
+            } while (currentdirection == randnum);
+            currentdirection = randnum;
+            $(".char").css("color", fontsize[level])
+            $(".char").css("transform", directionstyle[currentdirection])
+        }
+
+        $(".button").click(function() {
+            // alert(direction[this.id])
+            if (direction[this.id] == currentdirection) {
+                level++;
+                if (level == 6) {
+                    leftPass = true;
+                    level = 0;
+                    Swal.fire("Cover your right eye")
+                    if (rightEye) {
+                        result(true)
+                    }
+                    rightEye = true;
+                }
+                fail = 0;
+            } else {
+                fail++;
+                if (fail == 3) {
+                    level = 0;
+                    fail = 0;
+                    leftPass = false;
+                    Swal.fire("Cover your right eye")
+                    if (rightEye) {
+                        result(false)
+                    }
+                    rightEye = true;
+                }
+            }
+            generatelevel();
+        })
+
+        function result(param) {
+            console.log(param);
+            console.log(leftPass);
+            if (param && leftPass) {
+                Swal.fire({
+                    title: "Congratulations, your sensitivity to contrasts in both eyes seems good.",
+                    icon: "success",
+                    text: "Feel free to redo this test regularly to monitor your vision. However, to verify the health of your eyes, don't hesitate to fix an appointment with an eye care professional.",
+                    confirmButtonText: "Retry",
+                    showDenyButton: true,
+                    denyButtonText: "Go to next test"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.reload();
+                    } else if (result.isDenied) {
+                        location.href = nextTest;
+                    }
+                })
+
+            } else {
+                if (param == leftPass) {
+
+                    Swal.fire({
+                        title: "You have difficulties in seeing subtle contrasts with both eyes.",
+                        icon: "error",
+                        text: "We recommend you do a vision test with an eye care professional.",
+                        confirmButtonText: "Retry",
+                        showDenyButton: true,
+                        denyButtonText: "Go to next test"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload();
+                        } else if (result.isDenied) {
+                            location.href = nextTest;
+                        }
+                    })
+                } else {
+                    Swal.fire({
+                        title: "You seem to have difficulties in seeing subtle contrasts with one of your eyes.",
+                        icon: "warning",
+                        text: "We recommend you do a vision test with an eye care professional.",
+                        confirmButtonText: "Retry",
+                        showDenyButton: true,
+                        denyButtonText: "Go to next test"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload();
+                        } else if (result.isDenied) {
+                            location.href = nextTest;
+                        }
+                    })
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
